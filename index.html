@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Enablement Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">
+            <i class="fas fa-rocket"></i>
+            <span>Sales Hub</span>
+        </div>
+        <ul class="nav-links">
+            <li class="active" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </li>
+            <li data-section="onboarding">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Onboarding</span>
+            </li>
+            <li data-section="cheatsheets">
+                <i class="fas fa-file-alt"></i>
+                <span>Cheat Sheets</span>
+            </li>
+            <li data-section="onepagers">
+                <i class="fas fa-file-invoice"></i>
+                <span>One Pagers</span>
+            </li>
+            <li data-section="frameworks">
+                <i class="fas fa-comments"></i>
+                <span>Message Frameworks</span>
+            </li>
+            <li data-section="battlecards">
+                <i class="fas fa-shield-alt"></i>
+                <span>Battle Cards</span>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <button class="add-content-btn" onclick="openAddModal()">
+                <i class="fas fa-plus"></i>
+                <span>Add Content</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="section-header">
+                <h1>Welcome to Sales Enablement Hub</h1>
+                <p>Your one-stop resource for sales excellence</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon onboarding-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="onboarding-count">0</h3>
+                        <p>Onboarding Modules</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cheatsheet-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="cheatsheets-count">0</h3>
+                        <p>Cheat Sheets</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon onepager-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="onepagers-count">0</h3>
+                        <p>One Pagers</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon framework-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="frameworks-count">0</h3>
+                        <p>Message Frameworks</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon battlecard-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="battlecards-count">0</h3>
+                        <p>Battle Cards</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quick-access">
+                <h2>Quick Access</h2>
+                <div class="quick-links">
+                    <div class="quick-link-card" onclick="navigateTo('onboarding')">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>New Hire? Start Here</h3>
+                        <p>Complete your onboarding modules</p>
+                    </div>
+                    <div class="quick-link-card" onclick="navigateTo('battlecards')">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Competitive Intel</h3>
+                        <p>Know your competition inside out</p>
+                    </div>
+                    <div class="quick-link-card" onclick="navigateTo('frameworks')">
+                        <i class="fas fa-comments"></i>
+                        <h3>Perfect Your Pitch</h3>
+                        <p>Message frameworks that convert</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onboarding Section -->
+        <section id="onboarding" class="section">
+            <div class="section-header">
+                <h1><i class="fas fa-graduation-cap"></i> Onboarding Modules</h1>
+                <p>Training resources for new BDRs and SDRs</p>
+            </div>
+            <div class="content-grid" id="onboarding-grid"></div>
+        </section>
+
+        <!-- Cheat Sheets Section -->
+        <section id="cheatsheets" class="section">
+            <div class="section-header">
+                <h1><i class="fas fa-file-alt"></i> Product Cheat Sheets</h1>
+                <p>Quick reference guides for our products</p>
+            </div>
+            <div class="content-grid" id="cheatsheets-grid"></div>
+        </section>
+
+        <!-- One Pagers Section -->
+        <section id="onepagers" class="section">
+            <div class="section-header">
+                <h1><i class="fas fa-file-invoice"></i> One Pagers</h1>
+                <p>Single-page product and feature summaries</p>
+            </div>
+            <div class="content-grid" id="onepagers-grid"></div>
+        </section>
+
+        <!-- Message Frameworks Section -->
+        <section id="frameworks" class="section">
+            <div class="section-header">
+                <h1><i class="fas fa-comments"></i> Message Frameworks</h1>
+                <p>Proven messaging templates and scripts</p>
+            </div>
+            <div class="content-grid" id="frameworks-grid"></div>
+        </section>
+
+        <!-- Battle Cards Section -->
+        <section id="battlecards" class="section">
+            <div class="section-header">
+                <h1><i class="fas fa-shield-alt"></i> Competitive Battle Cards</h1>
+                <p>Win against the competition</p>
+            </div>
+            <div class="content-grid" id="battlecards-grid"></div>
+        </section>
+    </main>
+
+    <!-- Add Content Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Content</h2>
+                <span class="close-btn" onclick="closeAddModal()">&times;</span>
+            </div>
+            <form id="addContentForm" onsubmit="addContent(event)">
+                <div class="form-group">
+                    <label for="contentType">Content Type</label>
+                    <select id="contentType" required>
+                        <option value="">Select type...</option>
+                        <option value="onboarding">Onboarding Module</option>
+                        <option value="cheatsheets">Product Cheat Sheet</option>
+                        <option value="onepagers">One Pager</option>
+                        <option value="frameworks">Message Framework</option>
+                        <option value="battlecards">Battle Card</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contentTitle">Title</label>
+                    <input type="text" id="contentTitle" placeholder="Enter title..." required>
+                </div>
+                <div class="form-group">
+                    <label for="contentDescription">Description</label>
+                    <textarea id="contentDescription" placeholder="Enter description..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="contentBody">Content</label>
+                    <textarea id="contentBody" placeholder="Enter full content (supports markdown-style formatting)..." rows="10" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="contentTags">Tags (comma-separated)</label>
+                    <input type="text" id="contentTags" placeholder="e.g., beginner, product, cold-call">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeAddModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Content</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Content Modal -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="viewTitle">Content Title</h2>
+                <span class="close-btn" onclick="closeViewModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="viewTags" class="view-tags"></div>
+                <div id="viewContent" class="view-content"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeViewModal()">Close</button>
+                <button class="btn-danger" id="deleteBtn" onclick="deleteCurrentContent()">
+                    <i class="fas fa-trash"></i> Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
